@@ -1,0 +1,33 @@
+<mat-grid-list [cols]="2" bind-rowHeight="'200px'" [gutterSize]="'10px'">
+  <mat-grid-tile *ngFor="let item of items">
+    <div *ngIf="item.category == 'TRACTORES'" class="col-md-6">
+      <img height="200px" data-src="data:image/png;base64,{{item.image}}"
+           alt={{item.name}}>
+      <mat-grid-tile-footer>
+        <h1 mat-line>{{item.name | uppercase}}</h1>
+
+        <mat-form-field>
+          <mat-label style="color: #faffff">Opciones</mat-label>
+          <mat-select >
+            <mat-option value=""><button mat-button color="primary">
+              <span class="fa fa-cloud-upload">
+                <input #imageInput type="file" accept="image/*" (change)="uploadImage(imageInput, item.id)"/>
+              </span>
+            </button>
+            </mat-option>
+            <mat-option value=""><button mat-button color="warn" (click)="onDelete(item.id)"><span  class="fa fa-trash-o"> Eliminar</span></button></mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </mat-grid-tile-footer>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div [hidden]="items">
+  <mat-spinner></mat-spinner>
+  <h4>Loading . . . Please Wait</h4>
+</div>
+
+

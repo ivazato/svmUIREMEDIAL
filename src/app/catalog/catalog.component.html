@@ -1,0 +1,51 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>Catalogo de maquinarias</h3>
+      <hr>
+    </div>
+  </div>
+
+  <mat-grid-list [cols]="12" rowHeight = "25em">
+    <mat-grid-tile [colspan] = "3" [rowspan] = "1" >
+      <mat-nav-list>
+        <a mat-list-item routerLink="registrar" >
+          <mat-icon>note_add</mat-icon> <span class="nav-caption">Registrar</span>
+        </a>
+        <a mat-list-item routerLink="category" >
+          <mat-icon>apps</mat-icon> <span class="nav-caption">Categoria</span>
+        </a>
+        <a mat-list-item routerLink="model" >
+          <mat-icon>format_shapes</mat-icon> <span class="nav-caption">Modelo</span>
+        </a>
+        <a mat-list-item routerLink="brand" >
+          <mat-icon>branding_watermark</mat-icon><span class="nav-caption">Marca</span>
+        </a>
+        <a mat-list-item routerLink="capacity" >
+          <mat-icon>gavel</mat-icon><span class="nav-caption">Capacidad</span>
+        </a>
+        <a mat-list-item routerLink="price" >
+          <mat-icon>monetization_on</mat-icon><span class="nav-caption">Precio</span>
+        </a>
+      </mat-nav-list>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan] = "9"
+      [rowspan] = "1">
+      <router-outlet></router-outlet>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+
+
+
+
+
+</div>
+
+<!--PESTANIAS DE FILTROS-->
